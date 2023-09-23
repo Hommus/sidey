@@ -1,0 +1,20 @@
+{{> head}}
+<main>
+    {{> navbar}}
+    {{! loop that generates a list of posts }}
+    <section class="posts">
+        <ul>
+            {{#each posts}}
+                <li>
+                    {{!-- <article> --}}
+                    <a href="{{url}}">{{title}}</a>
+                    <time datetime="{{date createdAt}}">
+                        {{date createdAt "DD-MM-YYYY"}}
+                    </time>
+                    {{!-- </article> --}}
+                </li>
+            {{/each}}
+        </ul>
+        {{! /loop that generates list of posts }}
+    </section>
+</main>

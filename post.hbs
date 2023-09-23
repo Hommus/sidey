@@ -1,0 +1,33 @@
+{{! Post page; this file renders a single post and loads all the content}}
+{{> head}}
+<main>
+   {{> navbar}}
+
+   <section class="post">
+      {{! indicates the post's context}}
+      {{#post}}
+         <article>
+            <h2>{{title}}</h2>
+
+            {{! post body }}
+            <div id="post-entry">
+               {{{text}}}
+            </div>
+            {{! /post body }}
+
+            <hr/>
+            <time datetime="{{date createdAt 'YYYY-MM-DDTHH:mm'}}">
+               Published {{date createdAt 'MMMM YYYY'}}
+            </time>
+            {{! /post creation date }}
+
+         </article>
+      {{/post}}
+      {{! /indicates the post's context}}
+
+      {{! display comments plugin: it requires the "customComments" flag to be enabled in the "supportedFeatures" section of the config.json file}}
+         {{{@commentsCustomCode}}}
+      {{! /display comments plugin}}
+   </section>
+
+</main>
